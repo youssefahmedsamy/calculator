@@ -1,0 +1,9 @@
+{
+    "help": ["-h", "--help"],
+    "toggles": ["--subtract", "--sum", "--multiply", "--avg", "--mode", "--listinputs"],
+    "quit": ["--quit", "-q", "--exit"],
+    "end": ["-e", "--end"],
+    "config": ["--conf", "--config", "--configure"],
+    "defaults": ["--defaults", "--list-defaults", "--show-defaults", "--defs"]
+
+}

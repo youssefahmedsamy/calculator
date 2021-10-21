@@ -1,0 +1,8 @@
+{
+    "avg": "\nAverage: ",
+    "subtract": "\nSubtraction from each number by the number that follows: ",
+    "sum": "\nThe sum of all inputs: ",
+    "multiply": "\nThe total of multiplying all inputs: ",
+    "mode": "\nThe modal number(s): ",
+    "listinputs": "\nAll the numbers you entered: "
+}
