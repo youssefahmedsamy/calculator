@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from math import factorial
 from fractions import Fraction
 
@@ -17,7 +18,6 @@ def uselessdecimalzeros(x):
     return x
 
 
-# function to convert to superscript
 def get_super(x):
     normal = "0123456789+-=()."
     super_s = "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾·"
@@ -25,7 +25,6 @@ def get_super(x):
     return x.translate(res)
 
 
-# function to convert to subscript
 def get_sub(x):
     normal = "0123456789+-=()"
     sub_s = "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
