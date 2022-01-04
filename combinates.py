@@ -19,16 +19,16 @@ def uselessdecimalzeros(x):
 
 # function to convert to superscript
 def get_super(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()."
-    super_s = "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖ۹ʳˢᵗᵘᵛʷˣʸᶻ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾·"
+    normal = "0123456789+-=()."
+    super_s = "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾·"
     res = x.maketrans(''.join(normal), ''.join(super_s))
     return x.translate(res)
 
 
 # function to convert to subscript
 def get_sub(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
-    sub_s = "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
+    normal = "0123456789+-=()"
+    sub_s = "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
     res = x.maketrans(''.join(normal), ''.join(sub_s))
     return x.translate(res)
 
@@ -80,10 +80,10 @@ while discontinue == 0:
     elif i == 2:
         print("\nPlease go ahead and enter r: ")
         ntostr = uselessdecimalzeros(str(n))
-        print('{}Cr'.format(get_super(ntostr)))
+        print('{}Cᵣ'.format(get_super(ntostr)))
         r = int(float(input("r = ")))
         rtostr = str(r)
-        print("\n----------\nAnswer:")
+        print("\n----------\nAnswer:\n")
         print('{}C{} = {}'.format(get_super(ntostr), get_sub(rtostr), combinate(n, r)))
         print("\n----------\n")
         i = 1
