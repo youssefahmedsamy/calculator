@@ -1,7 +1,9 @@
 import json
 from statistics import mode
 import os
+
 MODDIR = os.path.join(os.path.dirname(__file__))
+MODDIR = MODDIR.replace('./', '')
 print(MODDIR)
 if len(MODDIR) < 1:
     MODDIR = "."
