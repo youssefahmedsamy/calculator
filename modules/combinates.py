@@ -1,62 +1,50 @@
-#!/usr/bin/python3
-from math import factorial
-from fractions import Fraction
-#from combinates import combinate
-
 import os
 import sys
-
-dir = os.path.join(os.path.dirname(__file__))
-dir = dir.replace('./', '')
-funcdir = dir + "/../"
-print(funcdir)
+dir = str(os.path.join(os.path.dirname(__file__))).replace("./", '')
+funcdir = str(dir.replace("modules", ''))
 sys.path.append(funcdir)
 from functions.combinates import combinate
 from functions.fractofloat import fractofloat
 from functions.deczeros import deczeros
+from functions.superscript import superscript
+from functions.subscript import subscript
 
 
+print("Welcome to the combinates calculator. ⁿCᵣ: n ∈ R; r ∈ N.")
 
 discontinue = int(0)
 i = int(1)
 
 
-def get_super(x):
-    normal = "0123456789+-=()."
-    super_s = "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾·"
-    res = x.maketrans(''.join(normal), ''.join(super_s))
-    return x.translate(res)
+def argparse(args):
+    if ((type(args) != list) & (type(args) != tuple)):
+        args = list(str(args).strip().split(" "))
+    for i in range(len(args)):
+        if args[i] == "exit":
+            return -1
 
-
-def get_sub(x):
-    normal = "0123456789+-=()"
-    sub_s = "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
-    res = x.maketrans(''.join(normal), ''.join(sub_s))
-    return x.translate(res)
-
-
-
-
-
-print("Welcome to the combinates calculator. Please note that the combinate structure is denoted by: ⁿCᵣ where n and "
-      "r are numbers you input. Please not that n can be a real number while r is an integer and r > 0."
-      "\nEnter 'e' at any time to exit")
 
 while discontinue == 0:
     if i == 1:
         print("ⁿCᵣ")
         print("Please go ahead and enter n: ")
-        n = fractofloat(input("n = "))
-        i += 1
+        n = input("n = ")
+        if argparse(n) == -1:
+            i = -1
+        else:
+            n = fractofloat(n)
+            i += 1
     elif i == 2:
         print("\nPlease go ahead and enter r: ")
-        ntostr = deczeros(str(n))
-        print('{}Cᵣ'.format(get_super(ntostr)))
-        r = int(float(input("r = ")))
-        rtostr = str(r)
-        print("\n----------\nAnswer:\n")
-        print('{}C{} = {}'.format(get_super(ntostr), get_sub(rtostr), combinate(n, r)))
-        print("\n----------\n")
-        i = 1
+        print('{}Cᵣ'.format(superscript(deczeros(str(n)))))
+        r = input("r = ")
+        if argparse(r) == -1:
+            i = -1
+        else:
+            r = int(float(r))
+            i = 1
+            print("\n----------\nAnswer:\n")
+            print('{}C{} = {}'.format(superscript(deczeros(str(n))), subscript(deczeros(str(r))), combinate(n, r)))
+            print("\n----------\n")
     elif i == -1:
         discontinue = 1

@@ -68,7 +68,8 @@ def finalize():
         if globals()['%s_enable' % c]:
             finalizestring += str(pjson[c]) + str(globals()['nums_%s' % c])
     if len(finalizestring) < 2:
-        finalizestring = "\n---Done---\n" "There was nothing to process. Please pass a valid action as a command to process entered numbers." "\nRestart the program."
+        finalizestring = "\n---Done---\n" "There was nothing to process. "
+        "Please pass a valid action as a command to process entered numbers." "\nRestart the program."
     else:
         finalizestring = "\n---Done---" + finalizestring
     presetjson.close()
